@@ -1,0 +1,30 @@
+---
+- name: Install filebeat on Webvms
+  hosts: webservers
+  remote_user: RedAdmin
+  become: true
+  tasks:
+  - name: Download .deb
+    command: curl -O -L http://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+  - name: Install .deb file
+    ansible.builtin.command:
+      cmd: sudo dpkg -i filebeat-7.4.0-amd64.deb
+  - name: Copy config file
+    ansible.builtin.copy:
+      src: /etc/ansible/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+      force: yes
+  - name: Enable filebeat
+    ansible.builtin.command:
+      cmd: sudo filebeat modules enable system
+  - name: Setup filebeat
+    ansible.builtin.command:
+      cmd: sudo filebeat setup
+  - name: Start filebeat
+    ansible.builtin.command:
+      cmd: sudo service filebeat start
+  - name: Enable filebeat on boot
+    ansible.builtin.systemd:
+      name: filebeat
+      state: started
+      enabled: yes
