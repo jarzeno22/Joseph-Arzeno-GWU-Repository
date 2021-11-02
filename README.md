@@ -106,8 +106,6 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to your servers public IP:5601
   to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- install-elk.yml, filebeat-playbook.yml, and metricbeat
-  -playbook.yml are the required playbooks
+- The required playbooks are install-elk.yml, filebeat-playbook.yml, and metricbeat-playbook.yml
 - To tell the playbook which machines you'd like to target update the hosts file with separate group names of your choice and append the correct IPs. In our case we used [webservers] and [elk]. Then specify the desired group in your .yml playbook
 - The public IP of your ELK server at port 5601. ie 40.113.196.176:5601
