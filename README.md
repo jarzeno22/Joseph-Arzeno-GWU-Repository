@@ -65,9 +65,7 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-
-Automated configuration allows for easy recreation or iteration of existing machines, in other words, existing machines can be reset and new machines can be set up through playbooks.
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually. Automated configuration allows for easy recreation or iteration of existing machines, in other words, existing machines can be reset and new machines can be set up quickly through playbooks.
 
 The playbook implements the following tasks:
 - Install the latest version of docker.io and enable it
@@ -93,7 +91,7 @@ These Beats allow us to collect the following information from each machine:
 
 Filebeat will allow us to track changes in the system logs as well as log events themselves. This can be useful in monitoring ssh requests into our server.
 
-Metricbeat monitors a systems hardware usage which can alert us to suspicious activity in terms of network usage or CPU usage.
+Metricbeat monitors a systems hardware usage which can alert us to suspicious activity in terms of network traffic or CPU usage.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
